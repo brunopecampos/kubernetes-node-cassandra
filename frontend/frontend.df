@@ -1,0 +1,6 @@
+FROM node:19
+COPY --chown=node:node ./ ./app
+WORKDIR ./app
+RUN npm install
+USER node
+CMD ["npm", "start"]
