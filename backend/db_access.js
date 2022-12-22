@@ -5,14 +5,12 @@ let fs = require("fs");
 const readFile = (filePath) => {
   return fs.readFileSync(filePath);
 };
-cassUser = readFile("/run/secrets/db_user");
-cassPass = readFile("/run/secrets/db_pass");
+cassUser = readFile("/run/secrets/CASSANDRA_USER");
+cassPass = readFile("/run/secrets/CASSANDRA_PASSWORD");
 
 // Replace 'Username' and 'Password' with the username and password from your cluster settings
 let authProvider = new cassandra.auth.PlainTextAuthProvider(cassUser, cassPass);
-// Replace the PublicIPs with the IP addresses of your clusters
-console.log(process.env.DB_CONTAINER_NAME);
-let contactPoints = [process.env.DB1_NAME, process.env.DB2_NAME];
+let contactPoints = ["database"];
 // Replace DataCenter with the name of your data center, for example: 'AWS_VPC_US_EAST_1'
 let localDataCenter = "datacenter1";
 

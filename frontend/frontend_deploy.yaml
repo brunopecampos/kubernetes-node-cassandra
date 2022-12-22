@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: brunopec/frontend:v1
+          resources:
+            limits:
+              memory: "600Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000

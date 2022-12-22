@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: database-headless
+  labels:
+    app: database-headless
+spec:
+  ports:
+    - port: 9072
+      name: data
+  clusterIP: None
+  selector:
+    app: database
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: database
+spec:
+  selector:
+    matchLabels:
+      app: database
+  serviceName: database-headless
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+        - name: cass
+          image: bitnami/cassandra:4.0.7
+          ports:
+            - containerPort: 9072
+              name: data
+          envFrom:
+            - configMapRef:
+                name: database-configmap

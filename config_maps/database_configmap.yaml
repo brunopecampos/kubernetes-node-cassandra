@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: database-configmap
+data:
+  CASSANDRA_PASSWORD_SEEDER: "yes"
+  CASSANDRA_USER: benigno
+  CASSANDRA_PASSWORD: opus_eh_o_bixo
+  CASSANDRA_CLUSTER_NAME: cluster_do_brunao
+  CASSANDRA_STORAGE_PATH: /bitnami
+  CASSANDRA_SCRIPTS_PATH: /docker-entrypoint-initdb.d
+  CQL_SCRIPTS_PATH: ./database/cql_scripts
+  MAX_HEAP_SIZE: 512M
+  HEAP_NEWSIZE: 100M

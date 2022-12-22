@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rev-proxy
+spec:
+  selector:
+    matchLabels:
+      app: rev-proxy
+  template:
+    metadata:
+      labels:
+        app: rev-proxy
+    spec:
+      containers:
+        - name: rev-proxy
+          image: brunopec/rev_proxy:v1
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
