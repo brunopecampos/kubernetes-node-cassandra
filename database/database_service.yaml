@@ -6,5 +6,5 @@ spec:
   selector:
     app: database
   ports:
-    - port: 9072
-      targetPort: 9072
+    - port: 9042
+      targetPort: 9042

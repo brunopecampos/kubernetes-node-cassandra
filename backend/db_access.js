@@ -5,8 +5,8 @@ let fs = require("fs");
 const readFile = (filePath) => {
   return fs.readFileSync(filePath);
 };
-cassUser = readFile("/run/secrets/CASSANDRA_USER");
-cassPass = readFile("/run/secrets/CASSANDRA_PASSWORD");
+cassUser = readFile("/k8s/secrets/CASSANDRA_USER");
+cassPass = readFile("/k8s/secrets/CASSANDRA_PASSWORD");
 
 // Replace 'Username' and 'Password' with the username and password from your cluster settings
 let authProvider = new cassandra.auth.PlainTextAuthProvider(cassUser, cassPass);

@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: brunopec/backend:v1.0.7
+          image: brunopec/backend:v1.0.9
           resources:
             limits:
               memory: "300Mi"

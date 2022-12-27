@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: database-configmap
 data:
+  CASSANDRA_SEEDS: database-0.database-headless.default.svc.cluster.local,database-1.database-headless.default.svc.cluster.local
   CASSANDRA_PASSWORD_SEEDER: "yes"
   CASSANDRA_USER: benigno
   CASSANDRA_PASSWORD: opus_eh_o_bixo
@@ -12,3 +13,7 @@ data:
   CQL_SCRIPTS_PATH: ./database/cql_scripts
   MAX_HEAP_SIZE: 512M
   HEAP_NEWSIZE: 100M
+  db_initial_data.cql: |
+    CREATE KEYSPACE IF NOT EXISTS salary WITH REPLICATION = {'class' : 'SimpleStrategy','replication_factor' : 1};
+    CREATE TABLE IF NOT EXISTS salary.my_salary (item_id TEXT, raise_percent DECIMAL, PRIMARY KEY (item_id));
+    INSERT INTO salary.my_salary (item_id, raise_percent) VALUES ('sal',0.50) IF NOT EXISTS;
