@@ -1,0 +1,6 @@
+cloneStaticSiteFromGit:
+  enabled: true
+  repository: "https://github.com/brunopecampos/kubernetes-node-cassandra"
+  branch: "static-frontend"
+  interval: 3600
+podLabels: { app: frontend }
