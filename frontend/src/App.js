@@ -10,7 +10,7 @@ function App() {
   const [bbMoney, setBbMoney] = useState(false);
 
   const increaseSalary = async () => {
-    await fetch("http://localhost/increase-salary");
+    await fetch("http://salary.increaser.com/increase-salary");
   };
 
   const updatePercent = async () => {
@@ -25,7 +25,7 @@ function App() {
   };
 
   const getPercent = async () => {
-    return await fetch("http://localhost/get-salary")
+    return await fetch("http://salary.increaser.com/get-salary")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: brunopec/frontend:v1
+          image: brunopec/frontend:v1.0.1
           resources:
             limits:
               memory: "600Mi"
