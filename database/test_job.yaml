@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-test
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+        - name: tester
+          image: oschrenk/cqlsh
+          command: ["sh", "/scripts/test_db.sh"]
+          volumeMounts:
+            - name: db-script
+              mountPath: /scripts
+      restartPolicy: Never
+      volumes:
+        - name: db-script
+          configMap:
+            name: job-configmap
+            items:
+              - key: "test_db.sh"
+                path: "test_db.sh"
