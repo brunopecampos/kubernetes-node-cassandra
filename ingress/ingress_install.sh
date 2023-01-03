@@ -1,3 +1,3 @@
 #!/bin/sh
 
-minikube enable addons ingress
+minikube addons enable ingress
