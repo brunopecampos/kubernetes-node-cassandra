@@ -4,3 +4,8 @@ cloneStaticSiteFromGit:
   branch: "static-frontend"
   interval: 3600
 podLabels: { app: frontend }
+# Didnt work with git synch
+#containerSecurityContext:
+#  enabled: true
+#  runAsNonRoot: true
+#  runAsUser: 1001

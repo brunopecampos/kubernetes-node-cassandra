@@ -41,6 +41,8 @@ spec:
               mountPath: /docker-entrypoint-initdb.d
             - name: nfs
               mountPath: /bitnami
+          securityContext:
+            allowPrivilegeEscalation: false
 
       volumes:
         - name: cql-scripts

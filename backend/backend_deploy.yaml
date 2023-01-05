@@ -23,6 +23,9 @@ spec:
           volumeMounts:
             - name: db-auth
               mountPath: /k8s/secrets
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
       volumes:
         - name: db-auth
           secret:
