@@ -14,10 +14,6 @@ spec:
       containers:
         - name: backend
           image: brunopec/backend:v1.0.9
-          resources:
-            limits:
-              memory: "300Mi"
-              cpu: "500m"
           ports:
             - containerPort: 4000
           volumeMounts:
@@ -26,6 +22,14 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
+          resources:
+            limits:
+              cpu: "1000m"
+              memory: "200Mi"
+            requests:
+              cpu: "10m"
+              memory: "100Mi"
+
       volumes:
         - name: db-auth
           secret:

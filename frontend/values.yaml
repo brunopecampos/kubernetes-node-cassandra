@@ -4,6 +4,13 @@ cloneStaticSiteFromGit:
   branch: "static-frontend"
   interval: 3600
 podLabels: { app: frontend }
+resources:
+  limits:
+    cpu: "1000m"
+    memory: "70Mi"
+  requests:
+    cpu: "300m"
+    memory: "30Mi"
 # Didnt work with git synch
 #containerSecurityContext:
 #  enabled: true

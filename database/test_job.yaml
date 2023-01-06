@@ -1,10 +1,13 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: db-test
+  name: db-test-job
 spec:
   ttlSecondsAfterFinished: 100
   template:
+    metadata:
+      labels:
+        app: db-test
     spec:
       containers:
         - name: tester

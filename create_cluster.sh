@@ -14,6 +14,7 @@ kubectl apply -f ./backend/backend_deploy.yaml
 kubectl apply -f ./backend/backend_service.yaml
 kubectl apply -f ./database/database_service.yaml
 kubectl apply -f ./database/database_statefulset.yaml
+minikube addons enable metrics-server
 #./ingress/ingress_install.sh
 #kubectl apply -f ./ingress/ingress.yaml
 # sudo echo "192.168.X.X" >> /etc/hosts

@@ -43,6 +43,28 @@ spec:
               mountPath: /bitnami
           securityContext:
             allowPrivilegeEscalation: false
+          resources:
+            requests:
+              cpu: "150m"
+              memory: "1000Mi"
+            limits:
+              cpu: "4000m"
+              memory: "1000Mi"
+          readinessProbe:
+            exec:
+              command:
+                [
+                  "cqlsh",
+                  "-e",
+                  "describe cluster",
+                  "-u",
+                  "benigno",
+                  "-p",
+                  "opus_eh_o_bixo",
+                  "localhost",
+                ]
+            initialDelaySeconds: 60
+            periodSeconds: 5
 
       volumes:
         - name: cql-scripts
