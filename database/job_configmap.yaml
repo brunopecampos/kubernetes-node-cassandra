@@ -8,3 +8,5 @@ data:
     cqlsh -e 'SELECT raise_percent FROM salary.my_salary' -u benigno -p opus_eh_o_bixo database-0.database-headless
     echo "Salary in db2:"
     cqlsh -e 'SELECT raise_percent FROM salary.my_salary' -u benigno -p opus_eh_o_bixo database-1.database-headless
+    echo "Salary in db3:"
+    cqlsh -e 'SELECT raise_percent FROM salary.my_salary' -u benigno -p opus_eh_o_bixo database-2.database-headless
